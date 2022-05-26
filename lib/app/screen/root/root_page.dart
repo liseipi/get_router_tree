@@ -25,7 +25,8 @@ class RootPage extends GetView<RootController> {
             // },
           ),
           floatingActionButton:  FloatingActionButton(
-            onPressed: () {  },
+              // FloatingActionButtonLocation:
+              onPressed: () {  },
             child: const Text("++"),
           ),
           // bottomNavigationBar: BottomNavigationBar(

@@ -12,7 +12,17 @@ class HomePage extends GetView<HomeController> {
       appBar: AppBar(
         title: const Text("Home page11"),
       ),
-      body: const Text('Home page aaa11'),
+      body: Column(
+        children: [
+          const Text("Home page"),
+          ElevatedButton(
+            onPressed: () {
+              Get.toNamed('/setting');
+            },
+            child: const Text("GO Setting Page"),
+          ),
+        ],
+      ),
       // bottomNavigationBar: BottomNavigationBar(
       //   currentIndex: 0,
       //   items: const [

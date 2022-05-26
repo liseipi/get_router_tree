@@ -12,21 +12,42 @@ class IndexPage extends GetView<IndexController> {
       routerDelegate: GetDelegate(),
       builder: (context, delegate, navConfig) {
         return Scaffold(
-          body: GetRouterOutlet(
-            anchorRoute: '/index',
-            initialRoute: '/home',
-            delegate: delegate,
-            // key: Get.nestedKey(2),
-            // filterPages: (afterAnchor) {
-            //   print(afterAnchor);
-            //   print('dddddddddddddddddd');
-            //   print(afterAnchor.take(1));
-            //   return afterAnchor.take(1);
-            // },
+          appBar: AppBar(
+            title: const Text("Index Page"),
           ),
-          floatingActionButton:  FloatingActionButton(
-            onPressed: () {  },
-            child: const Text("=="),
+          body: GetRouterOutlet(
+            initialRoute: '/index/home',
+            anchorRoute: '/index',
+
+            //delegate: Get.nestedKey(Routes.HOME),
+            // key: Get.nestedKey(Routes.HOME),
+          ),
+          // body: Column(
+          //   children: [
+          //     const Text("Index page"),
+          //     ElevatedButton(
+          //       onPressed: () {
+          //         Get.toNamed('/setting');
+          //       },
+          //       child: const Text("GO Setting Page"),
+          //     ),
+          //   ],
+          // ),
+          // body: GetRouterOutlet(
+          //   anchorRoute: '/index',
+          //   initialRoute: '/home',
+          //   delegate: delegate,
+          //   // key: Get.nestedKey(2),
+          //   // filterPages: (afterAnchor) {
+          //   //   print(afterAnchor);
+          //   //   print('dddddddddddddddddd');
+          //   //   print(afterAnchor.take(1));
+          //   //   return afterAnchor.take(1);
+          //   // },
+          // ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            child: const Text("===="),
           ),
           // bottomNavigationBar: BottomNavigationBar(
           //   currentIndex: 0,
@@ -79,4 +100,3 @@ class IndexPage extends GetView<IndexController> {
     // );
   }
 }
-
