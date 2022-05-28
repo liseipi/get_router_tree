@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../screen/pages/account/account_binding.dart';
+import '../screen/pages/account/account_page.dart';
 import '../screen/pages/home/home_binding.dart';
 import '../screen/pages/home/home_page.dart';
 import '../screen/pages/index/index_binding.dart';
@@ -30,6 +32,11 @@ class AppPages {
               name: '/home',
               page: () => const HomePage(),
               bindings: [HomeBinding()],
+            ),
+            GetPage(
+              name: '/account',
+              page: () => const AccountPage(),
+              bindings: [AccountBinding()],
             ),
           ],
         ),

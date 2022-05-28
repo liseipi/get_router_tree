@@ -10,14 +10,26 @@ class IndexPage extends GetView<IndexController> {
   Widget build(BuildContext context) {
     return GetRouterOutlet.builder(
       routerDelegate: GetDelegate(),
-      builder: (context, delegate, navConfig) {
+      builder: (context, delegate, currentRoute) {
+        // print(delegate);
+        // print(delegate.currentConfiguration);
+        // print(delegate.navigatorObservers);
+        // print(delegate.build(context));
+
+        // final delegate = context.navigation;
+        //This router outlet handles the appbar and the bottom navigation bar
+        // final currentLocation = context.location;
+        var currentIndex = 0;
+        // if (currentLocation.startsWith('/index/my') == true) {
+        //   currentIndex = 1;
+        // }
         return Scaffold(
           appBar: AppBar(
             title: const Text("Index Page"),
           ),
           body: GetRouterOutlet(
-            initialRoute: '/index/home',
             anchorRoute: '/index',
+            initialRoute: '/index/home',
 
             //delegate: Get.nestedKey(Routes.HOME),
             // key: Get.nestedKey(Routes.HOME),
@@ -49,6 +61,43 @@ class IndexPage extends GetView<IndexController> {
             onPressed: () {},
             child: const Text("===="),
           ),
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: (value) {
+              print(value);
+              switch (value) {
+                case 0:
+                  delegate.toNamed('/index/home');
+                  break;
+                case 1:
+                  delegate.toNamed('/account');
+                  // delegate.toNamed('/index/account');
+                  break;
+                default:
+              }
+            },
+            items: const [
+              // _Paths.HOME + [Empty]
+              BottomNavigationBarItem(
+                // icon: Icon(Icons.home),
+                icon: Padding(
+                  padding: EdgeInsets.only(top: 28, bottom: 5),
+                  child: Icon(Icons.home),
+                ),
+                label: 'Home',
+              ),
+              // _Paths.HOME + Routes.PROFILE
+              BottomNavigationBarItem(
+                // icon: Icon(Icons.account_box_rounded),
+                icon: Padding(
+                  padding: EdgeInsets.only(top: 28, bottom: 5),
+                  child: Icon(Icons.account_box_rounded),
+                ),
+                label: 'Profile',
+              ),
+            ],
+          ),
+
           // bottomNavigationBar: BottomNavigationBar(
           //   currentIndex: 0,
           //   items: const [
